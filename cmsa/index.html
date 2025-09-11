@@ -228,7 +228,7 @@
       height: 40px;
       border: none;
       border-radius: 50%;
-      background: grey;
+      background: rgba(255, 107, 71, 0.9);
       color: white;
       font-size: 18px;
       cursor: pointer;
@@ -490,7 +490,6 @@
         <li><a href="../">Home</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/cmsa/" class="active">CMSA</a></li>
-        <li><a href="/cmsa/">Book (coming soon)</a></li>
       </ul>
     </div>
   </nav>
@@ -639,7 +638,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Vilas Wright. All rights reserved.</p>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -649,10 +648,30 @@
     document.addEventListener('DOMContentLoaded', function() {
       const infoButtons = document.querySelectorAll('.info-btn');
       const linkButtons = document.querySelectorAll('.link-btn');
+      const tiles = document.querySelectorAll('.info-tile');
       const infoOverlay = document.getElementById('infoOverlay');
       const closeModal = document.getElementById('closeModal');
       const modalTitle = document.getElementById('modalTitle');
       const modalDescription = document.getElementById('modalDescription');
+
+      // Check if device is mobile/tablet
+      function isMobileDevice() {
+        return window.innerWidth <= 768;
+      }
+
+      // Desktop tile click functionality
+      tiles.forEach(tile => {
+        tile.addEventListener('click', function(e) {
+          // Only work on desktop (when mobile buttons are hidden)
+          if (!isMobileDevice()) {
+            const linkButton = this.querySelector('.link-btn');
+            if (linkButton) {
+              const url = linkButton.getAttribute('data-url');
+              window.open(url, '_blank', 'noopener,noreferrer');
+            }
+          }
+        });
+      });
 
       // Info button functionality
       infoButtons.forEach(button => {
