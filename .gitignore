@@ -1,0 +1,14 @@
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Logs
+*.log
+
+# Node modules (only if you use npm/yarn later)
+node_modules/
+
+# Environment variables (if you ever add secrets)
+.env
