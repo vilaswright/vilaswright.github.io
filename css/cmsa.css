@@ -24,7 +24,7 @@
 }
 
 .info-details {
-  padding: 4rem 0;
+  /* padding: 4rem 0; */
   background: rgba(35, 35, 35, 0.9);
   border-radius: 24px;
   margin: 3rem 0;
@@ -38,6 +38,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .info-tile-wrapper { position: relative; }
