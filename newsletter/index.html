@@ -13,6 +13,7 @@
 </head>
 <br>
 <br>
+<br>
 <body>
     <nav id="navbar">
         <div class="container">
@@ -82,12 +83,19 @@
         .then(data => {
         const container = document.getElementById('blog-posts');
         data.forEach(post => {
+            const formatContent = (text) => {
+            return text
+                .split(/\n\s*\n/)  
+                .map(para => `<p>${para.trim()}</p>`)
+                .join("");
+            };
             const postDiv = document.createElement('div');
             postDiv.className = "post";
+
             postDiv.innerHTML = `
                 <h2>${post.Title}</h2>
                 <p><em>${post.Date}</em></p>
-                <p>${post.Content}</p>
+                ${formatContent(post.Content)}
             `;
             container.appendChild(postDiv);
         });
@@ -98,5 +106,3 @@
   </script>
 </body>
 </html>
-
-<!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vS4Iq-RIrkQk5jNdhcRCaEQNQuNafayir9lE0g6ayAboq0EpkPXiBqwRiRr-pYpYJwbWPZvKfxyKuQm/pubhtml?gid=0&single=true -->
