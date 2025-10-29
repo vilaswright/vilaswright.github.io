@@ -1,0 +1,50 @@
+#blog-posts {
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  font-family: 'Georgia', serif;
+}
+
+.post {
+  background: #f9f9f9;
+  border: 1px solid #e3e3e3;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.post h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.post p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.post em {
+  display: block;
+  margin-bottom: 1rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 600px) {
+  .post {
+    padding: 1.5rem;
+  }
+
+  .post h2 {
+    font-size: 1.5rem;
+  }
+}

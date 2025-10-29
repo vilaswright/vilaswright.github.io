@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vilas Wright</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/newsletter.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+
+</head>
+<br>
+<br>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                <h2>Vilas Wright</h2>
+                </a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about/index.html">About</a></li>
+                <li><a href="cmsa/index.html">CMSA</a></li>
+                <li><a href="">Book (coming soon)</a></li>
+                <li><a href="contact/index.html">Contact Vilas</a></li>
+                <li><a href="newsletter/index.html" class="active">Newsletter</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    
+
+    <!-- <main class="page-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content blog-posts">
+                    
+                </div>
+            </div>
+        </section>
+    </main> -->
+
+    <section id="blog-posts">
+      <!-- Blog posts will be inserted here -->
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vilas Wright. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/home.js"></script>
+    <script>
+        const API_URL = "https://api.sheetbest.com/sheets/5cec5a63-504a-414f-8673-34211289d046"; 
+        const API_KEY = "IeY-0kqWKtKrcmCxnifjbye4xlc%UqEP0GNSAHCtxhIVOu!iC4m_-jF3aI#KBCWN"; 
+
+        fetch(API_URL, {
+        headers: {
+            "X-Api-Key": API_KEY
+        }
+        })
+        .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+        })
+        .then(data => {
+        const container = document.getElementById('blog-posts');
+        data.forEach(post => {
+            const postDiv = document.createElement('div');
+            postDiv.className = "post";
+            postDiv.innerHTML = `
+                <h2>${post.Title}</h2>
+                <p><em>${post.Date}</em></p>
+                <p>${post.Content}</p>
+            `;
+            container.appendChild(postDiv);
+        });
+        })
+        .catch(error => {
+        console.error("There was a problem fetching blog posts:", error);
+        });
+  </script>
+</body>
+</html>
+
+<!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vS4Iq-RIrkQk5jNdhcRCaEQNQuNafayir9lE0g6ayAboq0EpkPXiBqwRiRr-pYpYJwbWPZvKfxyKuQm/pubhtml?gid=0&single=true -->
