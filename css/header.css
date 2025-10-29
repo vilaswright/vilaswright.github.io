@@ -39,7 +39,7 @@ nav .container {
     transition: all 0.3s ease;
     position: relative;
     padding: 0.5rem 1rem;
-    border-radius: 12px;
+    border-radius: 12px;;
 }
 
 .nav-links a:hover {
